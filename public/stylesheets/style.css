@@ -1,0 +1,19 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+table th {
+	width: 200px;
+	border: 1px solid black;
+}
+
+
+
+.btn {
+	font-size: 28px;
+}
