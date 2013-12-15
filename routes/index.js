@@ -20,8 +20,8 @@ function BookmarkDAO(db) {
 
 	this.getBookmarks = function(callback) {
 		"use strict";
-
-		bookmarks.find().sort('name').toArray(function(err, items) {
+		// default order is date desc
+		bookmarks.find().sort({'date':-1}).toArray(function(err, items) {
 			if (err) return callback(err, null);
 
 			callback(err, items);

@@ -1,39 +1,41 @@
 extends layout
 
 block content
-	h1 
-		a(href='/') #{title}
+	div#header
+		p#name
+			a(href='/') #{title}
+		p#email abc@aol.com
 
-	form(action="/bookmark/add", method="GET")
-		input(type="text", name="name", value="test")
-		input(type="text", name="url", value="http://www.bing.de")
-		input(type="submit", value="Add Bookmark")
+	div.left
+		div 
+			navigation
+
+	div.right
+		form(action="/bookmark/add", method="GET")
+			input(type="text", name="name")
+			input(type="text", name="url", size="100")
+			input(type="submit", value="Add Bookmark")
 
 
 
-	table
-		thead
-			tr
-				th Name
-				th URL
-				th Date
-		tbody
-			tr
-				td
-					abc asdas
-					exa asd a
-					pf  asd sad
-		each bookmark in bookmarks
-			tr
-				td #{bookmark.name}
-				td 
-					if bookmark.url
-						a(href='#{bookmark.url}', target='_blank') #{bookmark.name}
-					else
-						div undefined
-				td 	
-					if bookmark.date
-						div #{moment(bookmark.date).format("DD.MM.YYYY")}
-					else
-						div 
+		table
+			thead
+				tr
+					th Name
+					th URL
+					th Date
+			tbody
+			each bookmark in bookmarks
+				tr
+					td #{bookmark.name}
+					td 
+						if bookmark.url
+							a(href='#{bookmark.url}', target='_blank') #{bookmark.name}
+						else
+							div undefined
+					td 	
+						if bookmark.date
+							div #{moment(bookmark.date).format("DD.MM.YYYY HH:mm")}
+						else
+							div 
 
