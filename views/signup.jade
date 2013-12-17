@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	h1 Sign up
+	form(action="/signup", method="POST")
+
+		table
+			tbody
+				tr
+					td Username
+					td 
+						input(type="text", name="username");
+					td #{error}
+				tr
+					td#label Password:
+					td 
+						input(type="text", name="password")
+
+		input(type="submit", value="Sign Up")
+
