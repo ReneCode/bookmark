@@ -8,8 +8,9 @@ function ContentHandler(db) {
 
 	var dbBookmark = new BookmarkDAO(db);
 
-	this.showMainPage = function(req, res, next) {
-		res.redirect('/bookmark');
+	this.showRootPage = function(req, res, next) {
+		res.render('root');
+//		res.redirect('/bookmark');
 	}
 
 	this.addBookmark = function(req, res, next) {

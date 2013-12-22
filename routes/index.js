@@ -15,7 +15,7 @@ function route(app, db) {
 	// check if user is logged in (use cookie)
 	app.use(sessionHandler.isLoggedInMiddleware);
 
-	app.get('/', contentHandler.showMainPage);
+	app.get('/', contentHandler.showRootPage);
 
 	app.get('/login', sessionHandler.showLoginPage);
 	app.post('/login', sessionHandler.handleLogin);
