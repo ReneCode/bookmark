@@ -11,22 +11,25 @@ function SessionHandler(db) {
 
 	this.isLoggedInMiddleware = function(req, res, next) {
 		// read from cookie
-		var session_id = req.cookies.session;		
-//		console.log("** called isLoggedInMiddleware:" + session_id);
+		var session_id = req.cookies.session;	
+//		console.log("isLoggedInMiddleware start " + req.username + " session:" + session_id);	
 		dbSession.getUsername(session_id, function(err, username) {
 			"use strict";
+			console.log("isLoggedInMiddleware checked " + err);	
 			if (!err  && username) {
-//				console.log("** isLoggedInMiddleware ok");
+				console.log("** isLoggedInMiddleware ok");
 				req.username = username;
 			}
-			next();
+			return next();
 		});
+//		console.log("isLoggedInMiddleware end " + req.username);	
+
 	}
 
 	this.showLoginPage = function(req, res, next) {
 		"use strict";
 
-		return res.render('login', {username:"", password:"", error:"??"});
+		return res.render('login', {username:"", password:"", error:""});
 	}
 
 	this.handleLogin = function(req, res, next) {
@@ -81,6 +84,7 @@ function SessionHandler(db) {
 
 		var username = req.body.username;
 		var password = req.body.password;
+		var confirm_password = req.body.confirm_password;
 
 		// todo validate user/password
 		dbUser.addUser(username, password, function(err, user) {
@@ -106,10 +110,11 @@ function SessionHandler(db) {
 
 		if (!req.username) {
 			console.log("welcome: can't identify user. redirect to signup");
-			res.redirect('/signup');
+			return res.redirect('/signup');
 		}
 
-		return res.render('welcome', {username: req.username});
+		res.redirect('bookmark');
+//		return res.render('welcome', {username: req.username});
 	}
 }
 

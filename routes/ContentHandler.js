@@ -8,12 +8,25 @@ function ContentHandler(db) {
 
 	var dbBookmark = new BookmarkDAO(db);
 
+
 	this.showRootPage = function(req, res, next) {
-		res.render('root');
-//		res.redirect('/bookmark');
+
+		console.log("showRootPage " + req.username);
+
+
+		if (req.username) {
+			console.log("welcome: can identify user:" + req.username);
+			res.redirect('/bookmark');
+		}
+		else {
+			res.render('root', {title:"Bookmark", description:"This is a bookmark manager."});
+		}
 	}
 
 	this.addBookmark = function(req, res, next) {
+		if (!req.username) { 
+			res.redirect('/');
+		}
 		var name = req.query.name;
 		var url = req.query.url;
 		console.log("adding Bookmark");
@@ -25,6 +38,10 @@ function ContentHandler(db) {
 	}
 
 	this.showBookmarkList = function(req, res, next) {
+		if (!req.username) { 
+			res.redirect('/');
+		}
+
 		dbBookmark.getBookmarks( function(err, results) {
 			if (err) return next(err);
 
@@ -33,6 +50,7 @@ function ContentHandler(db) {
 
 	}
 }
+
 
 
 module.exports = ContentHandler;

@@ -1,21 +1,17 @@
 extends layout
 
 block content
-	h1 Login
 
-	form(action="/login", method="POST")
+	div.container
+		form.form-signin(role="form" action="/login", method="POST")
+			h2.form-signin-heading Please login
+			div.control-group
+				input.form-control(type="text" name="username" placeholder="Name" value="#{username}" required autofocus)
+			div.control-group
+				input.form-control(type="password" name="password" placeholder="Password" value="#{password}" required)
+			p.signin-error #{error}
 
-		table
-			tbody
-				tr
-					td Username
-					td 
-						input(type="text", name="username", value="#{username}");
-					td #{error}
-				tr
-					td#label Password:
-					td 
-						input(type="text", name="password")
+			button.btn.btn-lg.btn-primary.btn-block(type="submit") Login
 
-		input(type="submit", value="Login")
+
 

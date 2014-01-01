@@ -17,6 +17,7 @@ function route(app, db) {
 
 	app.get('/', contentHandler.showRootPage);
 
+
 	app.get('/login', sessionHandler.showLoginPage);
 	app.post('/login', sessionHandler.handleLogin);
 

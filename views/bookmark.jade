@@ -1,36 +1,44 @@
 extends layout
 
 block content
-	div#header
-		p#name
-			a(href='/') #{title}
-		p.navtopright 
-			a(href='/login') Login
-		p.navtopright 
-			a(href='/signup') Sign up
+	div.container
+		nav.navbar.navbar-default(role="navigation")
+			div.navbar-header
+				a.navbar-brand(href="/") Home
+			div.navbar-collapse.collapase
+				ul.nav.navbar-nav
+					li.active
+						a(href="#") link
+					li
+						a(href="#") link
+					li
+						a(href="#") link
+				ul.nav.navbar-nav.navbar-right
+					li
+						a(href="#") #{username}
+					li
+						a(href="/logout") Logout
 
 
-	div.left
-		div 
-			navigation
 
-	div.right
+
 		form(action="/bookmark/add", method="GET")
 			input(type="text", name="name")
-			input(type="text", name="url", size="100")
+			input(type="text", name="url", size="80")
 			input(type="submit", value="Add Bookmark")
 
 
 
-		table
+		table.table
 			thead
 				tr
 					th Name
 					th URL
 					th Date
+					th #
 			tbody
 			each bookmark in bookmarks
-				tr
+				tr.active
 					td #{bookmark.name}
 					td 
 						if bookmark.url
@@ -42,4 +50,9 @@ block content
 							div #{moment(bookmark.date).format("DD.MM.YYYY HH:mm")}
 						else
 							div 
+					td
+						a(href="edit") 
+							i.icon-pencil
+						a(href="remove" role="button" data-toggle="modal")
+							i.icon-remove
 

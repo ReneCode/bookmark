@@ -1,12 +1,15 @@
 extends layout
 
 block content
-	h1 Welcome to the root page
+	div.container
+		div.masthead
+		div.jumbotron
+			h1 #{title}
+			p.lead #{description}
+			
+			div.container
+				a#signup(class="btn btn-lg btn-primary col-md-3" href="/signup") Sign up
+				span.col-md-1
+				a#login(class="btn btn-lg btn-primary col-md-3" href="/login") Login
 
 
-	div.pad-t8
-
-	div.center
-		div.center
-			button(class="btn-large wide", data-action="signup")  Sign up
-			button(class="btn-large wide", data-action="login") Login
