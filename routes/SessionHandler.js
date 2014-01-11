@@ -20,6 +20,7 @@ function SessionHandler(db) {
 				console.log("** isLoggedInMiddleware ok");
 				req.username = username;
 			}
+			// continue on the next request if successfull logged in
 			return next();
 		});
 //		console.log("isLoggedInMiddleware end " + req.username);	

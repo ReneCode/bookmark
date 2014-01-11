@@ -29,8 +29,7 @@ function route(app, db) {
 	app.get('/welcome', sessionHandler.showWelcomePage);
 
 	app.get('/bookmark', contentHandler.showBookmarkList);
-	app.get('/bookmark/add', contentHandler.addBookmark);
-
+	app.post('/bookmark/add', contentHandler.addBookmark);
 }
 
 

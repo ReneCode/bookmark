@@ -29,7 +29,7 @@ MongoClient.connect(mongoUri, function(err, db) {
 	app.use(express.static(path.join(__dirname, 'public')));
     // Express middleware to populate 'req.cookies' so we can access cookies
     app.use(express.cookieParser());
-//	app.use(express.bodyParser());
+	app.use(express.bodyParser());
 
     app.locals.moment = require('moment');
 

@@ -1,0 +1,28 @@
+
+.rlTable .tr {
+}
+
+
+.highlight {
+	border: 1px dashed black;
+	margin: 10px 10px 10px 10px;
+}
+
+.highlight:hover {
+	background-color: lightgray;
+}
+
+table td img.off{
+	border: 1px dashed red;
+    display:none;
+}
+table td:hover img.off{
+    display:inline;
+}
+table td:hover img.on{
+    display:none;
+}
+
+.hide {
+	display: none;
+}

@@ -22,23 +22,22 @@ block content
 
 
 
-		form(action="/bookmark/add", method="GET")
+		form(action="/bookmark/add", method="POST")
 			input(type="text", name="name")
 			input(type="text", name="url", size="80")
 			input(type="submit", value="Add Bookmark")
 
 
 
-		table.table
+		table.rlTable
 			thead
 				tr
 					th Name
 					th URL
 					th Date
-					th #
 			tbody
 			each bookmark in bookmarks
-				tr.active
+				tr.highlight.hovershowicom
 					td #{bookmark.name}
 					td 
 						if bookmark.url
@@ -52,7 +51,7 @@ block content
 							div 
 					td
 						a(href="edit") 
-							i.icon-pencil
-						a(href="remove" role="button" data-toggle="modal")
-							i.icon-remove
+							img.dynamicshow.hide(src="abc")
+
+
 

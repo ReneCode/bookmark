@@ -10,9 +10,7 @@ function ContentHandler(db) {
 
 
 	this.showRootPage = function(req, res, next) {
-
 		console.log("showRootPage " + req.username);
-
 
 		if (req.username) {
 			console.log("welcome: can identify user:" + req.username);
@@ -27,13 +25,11 @@ function ContentHandler(db) {
 		if (!req.username) { 
 			res.redirect('/');
 		}
-		var name = req.query.name;
-		var url = req.query.url;
-		console.log("adding Bookmark");
+		// that is a post-event - so get parameters with req.body
+		var name = req.body.name;
+		var url = req.body.url;
 		dbBookmark.addBookmark(name, url, function(err, result ) {
-			console.log("bm added:" + result);
 			res.redirect('/bookmark');
-
 		});
 	}
 
