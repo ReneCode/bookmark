@@ -2,16 +2,25 @@ extends layout
 
 block content
 
-	div.container
-		form.form-signin(role="form" action="/login", method="POST")
-			h2.form-signin-heading Please login
-			div.control-group
-				input.form-control(type="text" name="username" placeholder="Name" value="#{username}" required autofocus)
-			div.control-group
-				input.form-control(type="password" name="password" placeholder="Password" value="#{password}" required)
-			p.signin-error #{error}
+	div
+		nav.navbar.navbar-default(role="navigation")
+			div.navbar-header
+				a.navbar-brand(href="/") Home
 
-			button.btn.btn-lg.btn-primary.btn-block(type="submit") Login
+		div.container
+			form.form-signin(role="form" action="/login", method="POST")
+				h2.form-signin-heading Please login
+				div.control-group
+					input.form-control(type="text" name="username" placeholder="Name" value="#{username}" required autofocus)
+				div.control-group
+					input.form-control(type="password" name="password" placeholder="Password" value="#{password}" required)
+				div.control-group
+					p #{error}
+
+				button.btn.btn-lg.btn-primary.btn-block(type="submit") Login
+
+				div.control-group
+					a(href="/signup") Signup
 
 
 
