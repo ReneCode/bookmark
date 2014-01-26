@@ -7,14 +7,16 @@ block content
 			div.navbar-header
 				a.navbar-brand(href="/") Home
 
-		form.form-signin(role="form" action="/signup", method="POST")
-			h2.form-signin-heading Please Signup
-			div.control-group
-				input.form-control(type="text" name="username" placeholder="Name" value="#{username}" required autofocus)
-			div.control-group
-				input.form-control(type="password" name="password" placeholder="Password" value="#{password}" required)
-			div.control-group
-				input.form-control(type="password" name="confirm_password" placeholder="confirm Password" required)
-			div.control-group
-				p #{error}
-			button.btn.btn-lg.btn-primary.btn-block(type="submit") Signup
+		div.container
+			form.form-signin(role="form" action="/signup", method="POST")
+				h2.form-signin-heading Please Signup
+				div.control-group
+					input.form-control(type="text" name="username" placeholder="Name" value="#{username}" required autofocus)
+				div.control-group
+					input.form-control(type="password" name="password" placeholder="Password" value="#{password}" required)
+				div.control-group
+					input.form-control(type="password" name="confirm_password" placeholder="confirm Password" required)
+				div.control-group
+					p #{error}
+				button.btn.btn-lg.btn-primary.btn-block(type="submit") Signup
+
