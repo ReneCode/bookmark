@@ -48,7 +48,7 @@ var SessionDAO = function(db) {
 				callback(error, null);
 			}
 			else {
-				console.log("getUsername:" + session_id + " => " + session.username);
+//				console.log("getUsername:" + session_id + " => " + session.username);
 				callback(null, session.username);
 			}
 		});

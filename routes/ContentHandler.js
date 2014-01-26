@@ -10,10 +10,10 @@ function ContentHandler(db) {
 
 
 	this.showRootPage = function(req, res, next) {
-		console.log("showRootPage " + req.username);
+//		console.log("showRootPage " + req.username);
 
 		if (req.username) {
-			console.log("welcome: can identify user:" + req.username);
+//			console.log("welcome: can identify user:" + req.username);
 			res.redirect('/bookmark');
 		}
 		else {
@@ -30,6 +30,18 @@ function ContentHandler(db) {
 		var url = req.body.url;
 		dbBookmark.addBookmark(name, url, function(err, result ) {
 			res.redirect('/bookmark');
+		});
+	}
+
+	this.updateBookmark = function(req, res, next) {
+		if (!req.username) {
+			res.redirect('/');
+		}
+		var name = req.body.name;
+		var url = req.body.url;
+		var dbid = req.body.dbid;
+		dbBookmark.updateBookmark(dbid, name, url, function(err, updated ) {
+			res.send(updated);
 		});
 	}
 

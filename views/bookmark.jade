@@ -37,7 +37,7 @@ block content
 					th Date
 			tbody
 			each bookmark in bookmarks
-				tr.highlight.hovershowicom
+				tr.highlight
 					td #{bookmark.name}
 					td 
 						if bookmark.url
@@ -50,8 +50,20 @@ block content
 						else
 							div 
 					td
-						a(href="edit") 
-							img.dynamicshow.hide(src="abc")
+						a(call="edit" dbid="#{bookmark['_id']}" url="#{bookmark.url}" name="#{bookmark.name}" href="#") 
+							img.dynamicshow.hide(src="images/bd_edit.png")
 
 
+	div.dlgui#dlgedit(title="Edit bookmark")
+		p Name
+		input#bmname(type="text", name="name", value="")
+		p URL
+		input#bmurl(type="text", name="url")
 
+
+	div#dialog-overlay
+	div#dialog-box
+		div.dialog-content
+			div.dialog-message
+				hallo
+			a.button (href='#') Close

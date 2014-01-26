@@ -15,9 +15,9 @@ function SessionHandler(db) {
 //		console.log("isLoggedInMiddleware start " + req.username + " session:" + session_id);	
 		dbSession.getUsername(session_id, function(err, username) {
 			"use strict";
-			console.log("isLoggedInMiddleware checked " + err);	
+//			console.log("isLoggedInMiddleware checked " + err);	
 			if (!err  && username) {
-				console.log("** isLoggedInMiddleware ok");
+//				console.log("** isLoggedInMiddleware ok");
 				req.username = username;
 			}
 			// continue on the next request if successfull logged in

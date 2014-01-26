@@ -30,6 +30,7 @@ function route(app, db) {
 
 	app.get('/bookmark', contentHandler.showBookmarkList);
 	app.post('/bookmark/add', contentHandler.addBookmark);
+	app.post('/bookmark/update', contentHandler.updateBookmark);
 }
 
 
